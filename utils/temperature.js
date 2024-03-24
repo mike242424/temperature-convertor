@@ -17,4 +17,14 @@ function getOppositeUnit(unit) {
   return unit === UNITS.fahrenheit ? UNITS.celsius : UNITS.fahrenheit;
 }
 
-export { UNITS, convertTemperatureTo, getOppositeUnit };
+function isFreezingTemperaure(temperature, unit) {
+  if (unit === UNITS.fahrenheit) {
+    return temperature <= 32;
+  } else if (unit === UNITS.celsius) {
+    return temperature <= 0;
+  } else {
+    throw new Error('Invalid unit');
+  }
+}
+
+export { UNITS, convertTemperatureTo, getOppositeUnit, isFreezingTemperaure };
