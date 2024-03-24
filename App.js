@@ -1,13 +1,16 @@
-import { Text, View, ImageBackground } from 'react-native';
+import { View, ImageBackground } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { style } from './App.style';
 import Input from './conponents/Input/Input';
 import { useState } from 'react';
 import DisplayTemperature from './conponents/DisplayTemperature/DisplayTemperature';
+import Button from './conponents/Button/Button';
+import { UNITS } from './utils/temperature';
 
 const App = () => {
   const [inputValue, setInputValue] = useState(0);
-  const [unit, setUnit] = useState('°C');
+  const [unit, setUnit] = useState(UNITS.celsius);
+
   return (
     <ImageBackground
       style={style.backgroundImage}
@@ -22,7 +25,7 @@ const App = () => {
               onSetInputValue={setInputValue}
               unit={unit}
             />
-            <Text>Button</Text>
+            <Button unit={unit} onSetUnit={setUnit} />
           </View>
         </SafeAreaView>
       </SafeAreaProvider>
