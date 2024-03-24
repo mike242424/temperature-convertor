@@ -7,7 +7,7 @@ const Input = ({ inputValue = 0, onSetInputValue, unit }) => {
       <TextInput
         style={style.input}
         placeholder="Type your temperature"
-        maxLength={3}
+        maxLength={4}
         defaultValue={inputValue.toString()}
         onChangeText={(text) => onSetInputValue(text)}
       />
